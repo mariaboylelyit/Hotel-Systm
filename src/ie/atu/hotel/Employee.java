@@ -8,10 +8,15 @@
 **/
 package ie.atu.hotel;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 // INHERITANCE - Employee IS-A Person, and CAN-DO Payable methods
-public class Employee extends Person implements Payable {
+public class Employee extends Person implements Payable, Serializable {
     private Date dob;		// Employee has name&phoneNumber from Person
     private Date startDate;	// AND dob,startdate,salary, & number	
     private double salary;
@@ -55,7 +60,7 @@ public class Employee extends Person implements Payable {
     public String toString(){
 		DecimalFormat df=new DecimalFormat("#.00");
 
-		return number + " " + name + " €" + df.format(salary) + ".";
+		return number + " " + name + " ï¿½" + df.format(salary) + ".";
 	}
 
 	// equals() method
@@ -117,4 +122,30 @@ public class Employee extends Person implements Payable {
 		
 		return salary;
 	}
+	// read() method â€“ add to Employee class and finish it! 
+	public boolean read() { 
+		JTextField txtFirstName = new JTextField(); 
+		JTextField txtSurname = new JTextField(); 
+		JTextField txtPhoneNumber = new JTextField(); 
+
+		Object[] message = { 
+			"First Name:", txtFirstName, 
+			"Surname:", txtSurname, 
+			"Phone Number:", txtPhoneNumber, 
+		}; 
+
+		JDialog dialog = new JDialog(); 
+		dialog.setAlwaysOnTop(true);     
+		int option = JOptionPane.showConfirmDialog(dialog, message,  
+   		     "ENTER EMPLOYEE DETAILS", JOptionPane.OK_CANCEL_OPTION); 
+
+		if (option == JOptionPane.OK_OPTION){ 
+			this.name.setFirstName(txtFirstName.getText()); 
+			this.name.setSurname(txtSurname.getText()); 
+			this.phoneNumber=txtPhoneNumber.getText(); 
+			return true; 
+		} 
+		else  // CANCEL_OPTION 
+			return false; 
+		} 
 }
