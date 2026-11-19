@@ -14,6 +14,7 @@ public class Guest extends Person {	//INHERITANCE-Guest IS-A Person
 	// Guest has name & phoneNumber from Person
 	private String emailAddress;    // AND an emailAddress
 	private PaymentCard paymentCard;  // AND a paymentCard	
+	private int loyaltyPoints;		  // AND loyaltyPoints
 
 	// Default Constructor
 	// Called when a Guest object is created like this ==> 
@@ -21,6 +22,7 @@ public class Guest extends Person {	//INHERITANCE-Guest IS-A Person
 	public Guest() {
 		super();	// Don't need to call super() explicitly.
 		emailAddress="";
+		loyaltyPoints=0;
 	}
 	
 	// Overloaded initialization constructor
@@ -32,6 +34,7 @@ public class Guest extends Person {	//INHERITANCE-Guest IS-A Person
 		super(name,phoneNumber);
 		this.emailAddress=emailAddress;
 		this.paymentCard=paymentCard;
+		this.loyaltyPoints=0;
 	}
 
 	// OVERRIDING the Person toString() method!
@@ -60,4 +63,10 @@ public class Guest extends Person {	//INHERITANCE-Guest IS-A Person
 	public void setPaymentCard(PaymentCard paymentCard) {
 		this.paymentCard = paymentCard;
 	}
+	public int getLoyaltyPoints() {
+		return loyaltyPoints;
+	}
+	public void setLoyaltyPoints(int loyaltyPoints) {
+		this.loyaltyPoints = loyaltyPoints;
+	}	
 }
