@@ -67,5 +67,7 @@ public class EmployeeTester {
 				               ? "\t€" + df.format(employee.calculatePay(20))
 				               : "\t€" + df.format(employee.calculatePay(40)));
 		}
+		
+		e1.read();
 	}
 }
